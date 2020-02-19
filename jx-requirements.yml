@@ -1,0 +1,81 @@
+autoUpdate:
+  enabled: false
+  schedule: ""
+bootConfigURL: https://github.com/jenkins-x/jenkins-x-boot-config.git
+cluster:
+  clusterName: elhoutico
+  devEnvApprovers:
+  - yelhouti
+  environmentGitOwner: elhoutico
+  environmentGitPublic: true
+  gitKind: github
+  gitName: github
+  gitServer: https://github.org
+  helmMajorVersion: "3"
+  namespace: jx-test
+  provider: kubernetes
+  registry: docker.io
+environments:
+- ingress:
+    domain: elhouti.com
+    externalDNS: true
+    namespaceSubDomain: .jx-test.
+    tls:
+      email: contact@elhouti.com
+      enabled: true
+      production: true
+  key: dev
+  repository: environment-jx-test-dev
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: staging
+  repository: environment-jx-test-staging
+- ingress:
+    domain: ""
+    externalDNS: false
+    namespaceSubDomain: ""
+    tls:
+      email: ""
+      enabled: false
+      production: false
+  key: production
+  repository: environment-jx-test-production
+gitops: true
+ingress:
+  domain: elhouti.com
+  externalDNS: true
+  namespaceSubDomain: .jx.
+  tls:
+    email: contact@elhouti.com
+    enabled: true
+    production: true
+kaniko: true
+repository: nexus
+secretStorage: local
+storage:
+  backup:
+    enabled: false
+    url: ""
+  logs:
+    enabled: false
+    url: ""
+  reports:
+    enabled: false
+    url: ""
+  repository:
+    enabled: false
+    url: ""
+vault: {}
+velero:
+  schedule: ""
+  ttl: ""
+versionStream:
+  ref: v1.0.346
+  url: https://github.com/jenkins-x/jenkins-x-versions.git
+webhook: lighthouse
